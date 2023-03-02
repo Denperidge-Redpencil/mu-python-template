@@ -11,7 +11,7 @@ from escape_helpers import *
 Available functions:
 """
 
-def sparql_escape_string(obj):
+def sparql_escape_string(obj: str):
     """Converts the given string to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, str):
         warn("You are escaping something that isn't a string with \
@@ -19,7 +19,7 @@ def sparql_escape_string(obj):
         obj = str(obj)
     return '"""' + re.sub(r'[\\\'"]', lambda s: "\\" + s.group(0), obj) + '"""'
 
-def sparql_escape_datetime(obj):
+def sparql_escape_datetime(obj: datetime.datetime):
     """Converts the given datetime to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, datetime.datetime):
         warn("You are escaping something that isn't a datetime with \
@@ -27,7 +27,7 @@ def sparql_escape_datetime(obj):
         obj = datetime.datetime.fromisoformat(str(obj)) # only supports 3 or 6 digit microsecond notation (https://docs.python.org/3.7/library/datetime.html#datetime.datetime.fromisoformat)
     return '"{}"^^xsd:dateTime'.format(obj.isoformat())
 
-def sparql_escape_date(obj):
+def sparql_escape_date(obj: datetime.date):
     """Converts the given date to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, datetime.date):
         warn("You are escaping something that isn't a date with \
@@ -35,7 +35,7 @@ def sparql_escape_date(obj):
         obj = datetime.date.fromisoformat(str(obj))
     return '"{}"^^xsd:date'.format(obj.isoformat())
 
-def sparql_escape_time(obj):
+def sparql_escape_time(obj: datetime.time):
     """Converts the given time to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, datetime.time):
         warn("You are escaping something that isn't a time with \
@@ -43,7 +43,7 @@ def sparql_escape_time(obj):
         obj = datetime.time.fromisoformat(str(obj)) # only supports 3 or 6 digit microsecond notation (https://docs.python.org/3.7/library/datetime.html#datetime.time.fromisoformat)
     return '"{}"^^xsd:time'.format(obj.isoformat())
 
-def sparql_escape_int(obj):
+def sparql_escape_int(obj: int):
     """Converts the given int to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, int):
         warn("You are escaping something that isn't an int with \
@@ -51,7 +51,7 @@ def sparql_escape_int(obj):
         obj = str(int(obj))
     return '"{}"^^xsd:integer'.format(obj)
 
-def sparql_escape_float(obj):
+def sparql_escape_float(obj: float):
     """Converts the given float to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, int):
         warn("You are escaping something that isn't a float with \
@@ -59,7 +59,7 @@ def sparql_escape_float(obj):
         obj = str(float(obj))
     return '"{}"^^xsd:float'.format(obj)
 
-def sparql_escape_bool(obj):
+def sparql_escape_bool(obj: bool):
     """Converts the given bool to a SPARQL-safe RDF object string with the right RDF-datatype. """
     if not isinstance(obj, bool):
         warn("You are escaping something that isn't a bool with \
@@ -67,12 +67,12 @@ def sparql_escape_bool(obj):
         obj = bool(obj)
     return '"{}"^^xsd:boolean'.format("true" if obj else "false")
 
-def sparql_escape_uri(obj):
+def sparql_escape_uri(obj: str):
     """Converts the given URI to a SPARQL-safe RDF object string with the right RDF-datatype. """
     obj = str(obj)
     return '<' + re.sub(r'[\\"<>]', lambda s: "\\" + s.group(0), obj) + '>'
 
-def sparql_escape(obj):
+def sparql_escape(obj: any):
     """
     Converts the given object to a SPARQL-safe RDF object string with the right RDF-datatype. 
 
