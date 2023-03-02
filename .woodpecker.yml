@@ -11,6 +11,7 @@ pipeline:
       branch: $CI_COMMIT_BRANCH  # See https://woodpecker-ci.org/docs/usage/environment#built-in-environment-variables
       commit: true
       commit_message: Updating README.md docstring for commit $CI_COMMIT_REF
+      remote: $CI_REPO_REMOTE
 
 when:
   path: "README.*"
