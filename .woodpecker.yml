@@ -8,10 +8,12 @@ pipeline:
   push-commit:
     image: appleboy/drone-git-push  # See https://woodpecker-ci.org/plugins/Git%20Push
     settings:
-      branch: "${CI_COMMIT_BRANCH}"  # See https://woodpecker-ci.org/docs/usage/environment#built-in-environment-variables
+      branch: ${CI_COMMIT_BRANCH}  # See https://woodpecker-ci.org/docs/usage/environment#built-in-environment-variables
       commit: true
       commit_message: "[skip ci] Updating README.md docstring for commit ${CI_COMMIT_REF}"
-      remote: "${CI_REPO_REMOTE}"
+      remote: ${CI_REPO_REMOTE}
+      author_name: Woodpecker
+      author_email: "woodpecker@redpencil.io"
 
 when:
   path:
