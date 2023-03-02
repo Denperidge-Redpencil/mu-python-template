@@ -14,4 +14,5 @@ pipeline:
       remote: ${CI_REPO_REMOTE}
 
 when:
-  path: "README.*"
+  path:
+    include: [".woodpecker*", "*helpers.py"]
