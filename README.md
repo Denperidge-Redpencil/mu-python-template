@@ -166,7 +166,7 @@ def update_modified(subject, modified=datetime.datetime.now())
 #### `sparql_escape_string`
 
 ```python
-def sparql_escape_string(obj)
+def sparql_escape_string(obj: str)
 ```
 
 > Converts the given string to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -176,7 +176,7 @@ def sparql_escape_string(obj)
 #### `sparql_escape_datetime`
 
 ```python
-def sparql_escape_datetime(obj)
+def sparql_escape_datetime(obj: datetime.datetime)
 ```
 
 > Converts the given datetime to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -186,7 +186,7 @@ def sparql_escape_datetime(obj)
 #### `sparql_escape_date`
 
 ```python
-def sparql_escape_date(obj)
+def sparql_escape_date(obj: datetime.date)
 ```
 
 > Converts the given date to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -196,7 +196,7 @@ def sparql_escape_date(obj)
 #### `sparql_escape_time`
 
 ```python
-def sparql_escape_time(obj)
+def sparql_escape_time(obj: datetime.time)
 ```
 
 > Converts the given time to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -206,7 +206,7 @@ def sparql_escape_time(obj)
 #### `sparql_escape_int`
 
 ```python
-def sparql_escape_int(obj)
+def sparql_escape_int(obj: int)
 ```
 
 > Converts the given int to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -216,7 +216,7 @@ def sparql_escape_int(obj)
 #### `sparql_escape_float`
 
 ```python
-def sparql_escape_float(obj)
+def sparql_escape_float(obj: float)
 ```
 
 > Converts the given float to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -226,7 +226,7 @@ def sparql_escape_float(obj)
 #### `sparql_escape_bool`
 
 ```python
-def sparql_escape_bool(obj)
+def sparql_escape_bool(obj: bool)
 ```
 
 > Converts the given bool to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -236,7 +236,7 @@ def sparql_escape_bool(obj)
 #### `sparql_escape_uri`
 
 ```python
-def sparql_escape_uri(obj)
+def sparql_escape_uri(obj: str)
 ```
 
 > Converts the given URI to a SPARQL-safe RDF object string with the right RDF-datatype.
@@ -246,7 +246,7 @@ def sparql_escape_uri(obj)
 #### `sparql_escape`
 
 ```python
-def sparql_escape(obj)
+def sparql_escape(obj: any)
 ```
 
 > Converts the given object to a SPARQL-safe RDF object string with the right RDF-datatype. 
