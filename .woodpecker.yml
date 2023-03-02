@@ -1,0 +1,16 @@
+pipeline:
+  readme-docstrings:
+    image: python:3.9
+    commands:
+      - python3 -m pip install pydoc-markdown
+      - python3 README.py
+
+  push-commit:
+    image: appleboy/drone-git-push  # See https://woodpecker-ci.org/plugins/Git%20Push
+    settings:
+      branch: $CI_COMMIT_BRANCH  # See https://woodpecker-ci.org/docs/usage/environment#built-in-environment-variables
+      commit: true
+      commit_message: Updating README.md docstring for commit $CI_COMMIT_REF
+
+when:
+  path: "README.*"
